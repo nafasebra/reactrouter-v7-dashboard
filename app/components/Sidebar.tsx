@@ -22,6 +22,9 @@ const Sidebar = ({ isToggled }: { isToggled: boolean }) => {
           <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
             <NavLink to="/profile">Profile</NavLink>
           </li>
+          <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
+            <NavLink to="/blog">Blog</NavLink>
+          </li>
         </ul>
       </nav>
     </aside>
