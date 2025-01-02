@@ -10,11 +10,58 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
+export async function loader() {
+  return {
+    message: "User dashboard",
+    tableData: [
+      {
+        name: "John Doe",
+        email: "john.doe@example.com",
+        role: "admin",
+      },
+      {
+        name: "Jane Smith",
+        email: "jane.smith@example.com",
+        role: "editor",
+      },
+      {
+        name: "Alice Johnson",
+        email: "alice.johnson@example.com",
+        role: "viewer",
+      },
+      {
+        name: "Bob Brown",
+        email: "bob.brown@example.com",
+        role: "admin",
+      },
+      {
+        name: "Charlie Davis",
+        email: "charlie.davis@example.com",
+        role: "editor",
+      },
+      {
+        name: "Eve White",
+        email: "eve.white@example.com",
+        role: "viewer",
+      },
+    ],
+  };
+}
+
+export default function Home({
+  loaderData,
+}: {
+  loaderData: {
+    message: string;
+    tableData: { name: string; email: string; role: string }[];
+  };
+}) {
   return (
     <>
       <div className="mb-6">
-        <h2 className="text-2xl font-semibold text-gray-700">User Dashboard</h2>
+        <h2 className="text-2xl font-semibold text-gray-700">
+          {loaderData.message}
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
           <div className="bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-lg font-medium text-gray-800">Pending Tasks</h3>
@@ -54,20 +101,19 @@ export default function Home() {
             </tr>
           </thead>
           <tbody className="text-gray-600">
-            <tr>
-              <td className="px-6 py-4 border-b border-gray-300">John Doe</td>
-              <td className="px-6 py-4 border-b border-gray-300">
-                john@example.com
-              </td>
-              <td className="px-6 py-4 border-b border-gray-300">Admin</td>
-            </tr>
-            <tr>
-              <td className="px-6 py-4 border-b border-gray-300">Jane Smith</td>
-              <td className="px-6 py-4 border-b border-gray-300">
-                jane@example.com
-              </td>
-              <td className="px-6 py-4 border-b border-gray-300">User</td>
-            </tr>
+            {loaderData.tableData.map((row, index) => (
+              <tr key={index}>
+                <td className="px-6 py-4 border-b border-gray-300">
+                  {row.name}
+                </td>
+                <td className="px-6 py-4 border-b border-gray-300">
+                  {row.email}
+                </td>
+                <td className="px-6 py-4 border-b border-gray-300">
+                  {row.role}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
