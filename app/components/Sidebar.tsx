@@ -13,17 +13,37 @@ const Sidebar = ({ isToggled }: { isToggled: boolean }) => {
       </div>
       <nav className="mt-10">
         <ul>
-          <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
-            <NavLink to="/">Dashboard</NavLink>
+          <li>
+            <NavLink
+              to="/"
+              className="block px-4 py-2 hover:bg-gray-700 cursor-pointer w-full"
+            >
+              Dashboard
+            </NavLink>
           </li>
-          <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
-            <NavLink to="/setting">Settings</NavLink>
+          <li>
+            <NavLink
+              to="/setting"
+              className="block px-4 py-2 hover:bg-gray-700 cursor-pointer w-full"
+            >
+              Settings
+            </NavLink>
           </li>
-          <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
-            <NavLink to="/profile">Profile</NavLink>
+          <li>
+            <NavLink
+              to="/profile"
+              className="block px-4 py-2 hover:bg-gray-700 cursor-pointer w-full"
+            >
+              Profile
+            </NavLink>
           </li>
-          <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
-            <NavLink to="/blog">Blog</NavLink>
+          <li>
+            <NavLink
+              to="/blog"
+              className="block px-4 py-2 hover:bg-gray-700 cursor-pointer w-full"
+            >
+              Blog
+            </NavLink>
           </li>
         </ul>
       </nav>

@@ -1,15 +1,4 @@
 import React from 'react';
-import type { Route } from "./+types/setting";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "Simple Dashboard App" },
-    {
-      name: "description",
-      content: "Project managment dashboard with new version of react router!",
-    },
-  ];
-}
 
 export default function Setting() {
   return (
